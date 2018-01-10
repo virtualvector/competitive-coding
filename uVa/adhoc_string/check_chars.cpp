@@ -58,6 +58,19 @@ for(int i=0;i<s1.length();i++){
 
 }
 
+void map_printer( unordered_map<char,int> um){
+
+
+unordered_map<char,int>::iterator iter;
+
+for(iter=um.begin();iter!=um.end();iter++){
+    
+    cout<<(*iter).first<< " "<<(*iter).second<<endl;
+
+}
+
+}
+
 
 int main()
 {
@@ -77,23 +90,33 @@ map_returner(s1,&um);
 map_returner(s2,&um2);
 
 cout<<endl<<"map1"<<endl;
+map_printer(um);
+cout<<endl<<"map2"<<endl;
+map_printer(um2);
 
-unordered_map<char,int>::iterator iter;
+cout<<"are they same?"<<endl;
 
-for(iter=um.begin();iter!=um.end();iter++){
-    
-    cout<<(*iter).first<< " "<<(*iter).second<<endl;
+int counter1=0;
+int counter2 =0;
+bool value = true;
+
+for(auto& x: um){
+   counter1+= x.second; 
+   auto my_iter = um2.find(x.first);
+   if(my_iter == um2.end() ||  (um2.find(x.first))->second != x.second){
+        value = false;
+        break;
+   }
 
 }
-cout<<endl<<"map 2"<<endl;
-for(iter=um2.begin();iter!=um2.end();iter++){
-    
-    cout<<(*iter).first<< " "<<(*iter).second<<endl;
+
+for(auto& x: um2){
+   counter2+= x.second; 
 
 }
 
-
-
+cout<<counter1<<" "<<counter2<<endl;
+cout<<value;
 
 
 
