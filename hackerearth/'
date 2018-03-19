@@ -1,0 +1,11 @@
+#include<stdio.h>
+main()
+{
+ char ch = 'a';
+ while(ch-'0'!=80)
+ {
+    printf("%c %d\n",ch,ch-'0');
+    ch+=1;
+
+ }
+}
