@@ -7,8 +7,9 @@ int main()
 {
 
 string s="hello";
-char * str = const_cast<char*>(s.c_str());
-string s2(str);
-cout<<s2<<endl;
+//s.replace(0,3,"bye",1,2);
+//s.replace(s.begin(),s.begin()+3,"byee");
+
+cout<<s<<endl;
 
 }
